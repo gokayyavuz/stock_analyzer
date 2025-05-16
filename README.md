@@ -35,3 +35,4 @@ A simple Streamlit-based web app that allows you to analyze historical stock pri
 - [Streamlit](https://streamlit.io/) – UI framework
 - [yfinance](https://ranaroussi.github.io/yfinance/) – Stock data
 - [pandas](https://pandas.pydata.org/) – Data handling
+- [prophet](https://facebook.github.io/prophet/) - Time series forecasting
