@@ -6,6 +6,7 @@ from sklearn.metrics import mean_squared_error
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 from prophet import Prophet
+import streamlit as st
 
 class Prediction:
     def __init__(self, ticker: str, start_date: str = '2022-01-01'):
@@ -48,16 +49,17 @@ class Prediction:
         future_ordinals = future_dates.map(pd.Timestamp.toordinal).to_frame(name='DateOrdinal')
         future_preds = self.model_lr.predict(future_ordinals).ravel()
         future_df = pd.DataFrame({'Date': future_dates, 'Predicted Close': future_preds})
-        
-        plt.figure(figsize=(14, 7))
-        plt.plot(self.data.index, self.data['Close'], label='Real Chart')
-        plt.plot(future_df['Date'], future_df['Predicted Close'], label='Linear Prediction', linestyle='--')
-        plt.title(f'{self.ticker.upper()} Prediction (Linear Regression)')
-        plt.xlabel('Date')
-        plt.ylabel('in USD')
-        plt.legend()
-        plt.grid(True)
-        plt.show()
+
+        fig, ax = plt.subplots(figsize=(14, 7))
+        ax.plot(self.data.index, self.data['Close'], label='Real Chart')
+        ax.plot(future_df['Date'], future_df['Predicted Close'], label='Linear Prediction', linestyle='--')
+        ax.set_title(f'{self.ticker.upper()} Prediction (Linear Regression)')
+        ax.set_xlabel('Date')
+        ax.set_ylabel('in USD')
+        ax.legend()
+        ax.grid(True)
+
+        st.pyplot(fig)
 
     def train_prophet(self):
         df = self.data.copy()
@@ -85,4 +87,6 @@ class Prediction:
         self.forecast = self.prophet_model.predict(future)
         fig = self.prophet_model.plot(self.forecast)
         fig.suptitle(f'Prediction for {self.ticker.upper()} (Prophet)', fontsize=14)
-        plt.show()
+        
+        st.pyplot(fig)
+
