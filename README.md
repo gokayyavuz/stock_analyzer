@@ -15,6 +15,10 @@ A simple Streamlit-based web app that allows you to analyze historical stock pri
 - Calculates number of shares bought, current value, and profit/loss
 - Visualizes the stock’s performance since the purchase date
 
+### 🔮 Stock Prediction
+- Use Facebook Prophet to forecast future price trends
+- Display predictive time series with trend and confidence intervals
+
 ## 🔮 Planned Features
 
 ### 📊 Stock Analyzer
@@ -25,10 +29,6 @@ A simple Streamlit-based web app that allows you to analyze historical stock pri
 ### 💼 Portfolio Simulation
 - Build a full portfolio by adding multiple positions
 - Track and visualize the overall portfolio development over time
-
-### 🔮 Stock Prediction
-- Use Facebook Prophet to forecast future price trends
-- Display predictive time series with trend and confidence intervals
 
 ## 🧩 Built With
 
