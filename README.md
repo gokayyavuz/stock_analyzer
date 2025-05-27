@@ -5,7 +5,7 @@ A simple Streamlit-based web app that allows you to analyze historical stock pri
 ## 🚀 Features
 
 ### 🔍 Stock Analyzer
-- Enter any stock ticker (e.g. `AAPL`, `GOOGL`, `TSLA`)
+- Enter any stock ticker (e.g. `AAPL`, `GOOGL`, `TSLA`, `BTC-USD`)
 - Choose from various time periods (1 month to 5 years)
 - Automatically fetches historical closing prices from Yahoo Finance
 - Displays price trend as an interactive line chart
